@@ -1,6 +1,11 @@
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
 	id 'maven-publish'
+    id("org.jetbrains.kotlin.jvm") version "2.3.0"
+}
+
+kotlin {
+    jvmToolchain(21)
 }
 
 version = project.mod_version
@@ -47,8 +52,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "com.cobblemon:fabric:1.7.1+1.21.1"
-
+    modImplementation "com.cobblemon:fabric:1.7.0+1.21.1"
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.3.0")
 }
 
 processResources {
